@@ -10,6 +10,8 @@ import SwiftUI
 struct WeatherPage: View {
     
     var weatherModel:CurrentWeather
+    var latitude:Double
+    var longitude:Double
     @StateObject var weatherViewModel:WeatherPageViewModel = WeatherPageViewModel()
     
     var body: some View {
@@ -92,7 +94,7 @@ struct WeatherPage: View {
 struct WeatherPage_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            WeatherPage(weatherModel: dummyWeather)
+            WeatherPage(weatherModel: dummyWeather,latitude: 0.0,longitude: 0.0)
             //            WeatherPage(weatherModel: dummyWeather)
             //                .previewDevice("iPad Air (4th generation)")
             //            WeatherPage(weatherModel: dummyWeather)

@@ -23,12 +23,12 @@ class WeatherPageViewModel: ObservableObject{
                 switch completion {
                 case .failure(let error):
                     self?.weatherPageState=WeatherPageState.Error(errorMessage: "\(error)")
-                    print("\(error)")
+                    
                 case .finished:
                     print("Finished")
                 }
             } receiveValue: { [weak self] currentWeather in
-                print(currentWeather)
+               
                 self?.weatherPageState=WeatherPageState.Loaded(currentWeather: currentWeather)
             }
             .store(in: &cancellable)

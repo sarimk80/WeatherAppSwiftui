@@ -9,10 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     
+    
     @ObservedObject var locationService:LocationService=LocationService()
     
     var body: some View {
-       WeatherPage(weatherModel: dummyWeather)
+        WeatherPage(weatherModel: dummyWeather, latitude: locationService.currentLocation?.latitude ?? 0.0,longitude: locationService.currentLocation?.longitude ?? 0.0)
         .onAppear {
             locationService.requestLocation()
         }
